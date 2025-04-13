@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up Otomatis</title>
+  <link rel="icon" href="/static/images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles/style.css">
+</head>
+<body class="bg-gray-100 p-4">
+  <!-- Header Game & Logo -->
+  <div class="grid grid-cols-3 gap-4 mb-6">
+    <div class="flex flex-col items-center">
+      <img src="/static/images/mlbb.png" alt="Mobile Legends" class="w-16 h-16 mb-2">
+      <span class="font-semibold">Mobile Legends</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <img src="/static/images/freefire.png" alt="Free Fire" class="w-16 h-16 mb-2">
+      <span class="font-semibold">Free Fire</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <img src="/static/images/pubg.png" alt="PUBG" class="w-16 h-16 mb-2">
+      <span class="font-semibold">PUBG</span>
+    </div>
+  </div>
+
+  <h1 class="text-2xl font-bold text-center mb-4">Top Up Game Otomatis</h1>
+
+  <!-- Notifikasi Global -->
+  <div id="notif" class="hidden text-center mb-4 p-2 rounded text-white"></div>
+
+  <!-- Form Pembelian -->
+  <form id="formPembelian" class="bg-white p-4 rounded shadow mb-6">
+    <select id="gamePembelian" class="w-full p-2 border mb-2 rounded" required>
+      <option value="">Pilih Game</option>
+      <option value="Mobile Legends">Mobile Legends</option>
+      <option value="Free Fire">Free Fire</option>
+      <option value="PUBG">PUBG</option>
+    </select>
+    <input type="text" id="idPembelian" placeholder="ID Game" class="w-full p-2 border mb-2 rounded" required />
+    <input type="text" id="jumlahPembelian" placeholder="Jumlah Diamond/Item" class="w-full p-2 border mb-2 rounded" required />
+    <select id="metodePembelian" class="w-full p-2 border mb-2 rounded" required>
+      <option value="">Metode Pembayaran</option>
+      <option value="QRIS">QRIS</option>
+      <option value="DANA">DANA</option>
+      <option value="OVO">OVO</option>
+    </select>
+    <textarea id="pesanPembelian" placeholder="Pesan tambahan..." class="w-full p-2 border mb-2 rounded"></textarea>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Kirim Pesanan</button>
+  </form>
+
+  <!-- Login Admin -->
+  <form id="adminLoginForm" class="bg-white p-4 rounded shadow mb-6">
+    <h2 class="text-lg font-semibold mb-2">Login Admin</h2>
+    <input type="text" id="adminUsername" placeholder="Username" class="w-full p-2 border mb-2 rounded" required />
+    <input type="password" id="adminPassword" placeholder="Password" class="w-full p-2 border mb-2 rounded" required />
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Login</button>
+  </form>
+
+  <!-- Ikon Pesan -->
+  <button id="pesanIcon" class="hidden fixed top-4 right-4 bg-yellow-400 text-white p-2 rounded-full shadow-lg">📩</button>
+
+  <!-- Panel Admin -->
+  <div id="adminPanel" class="hidden bg-white p-4 rounded shadow mb-6">
+    <h2 class="text-lg font-semibold mb-2">Order Masuk</h2>
+    <div id="orderList" class="space-y-2"></div>
+    <h2 class="text-lg font-semibold mt-6 mb-2">Order Selesai</h2>
+    <div id="doneList" class="space-y-2"></div>
+  </div>
+
+  <!-- Modal Pesan -->
+  <div id="pesanModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center hidden">
+    <div class="bg-white p-4 rounded w-96">
+      <h2 class="text-xl font-semibold mb-2">Pesan dari Pembeli</h2>
+      <div id="pesanKonten" class="mb-4 max-h-60 overflow-y-auto"></div>
+      <button id="tutupPesan" class="bg-red-500 text-white px-4 py-2 rounded">Tutup</button>
+    </div>
+  </div>
+
+  <script src="/static/scripts/app.js"></script>
+</body>
+</html>
